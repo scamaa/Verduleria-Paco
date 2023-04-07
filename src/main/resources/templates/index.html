@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Verduleria Paco</title>
+        <meta charset="UTF-8"/>
     </head>
     <body>
-        <div>TODO write content</div>
+        <header th:replace="~{layout/plantilla :: header}"/>
+            
+            <div class="container">
+                 <div class="row row-cols-3">
+                      <div class="card" th:each="producto : ${productos}">
+                           <div class="card-body">
+                               <img th:src="${producto.imagen}" width="200px"/>
+                               <h5 class="card-title">[[${producto.descripcion}]]</h5>
+                               <h6 class="card-subtitle mb-2 text-muted text-end">
+                                    [[${producto.precio}]]
+                               </h6>
+                               <a class="card-link" 
+                                   th:href="@{/carrito/comprar/} + ${producto.idProducto}">
+                                    Comprar</a>
+                                <p class="card-text">[[${producto.detalle}]]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>

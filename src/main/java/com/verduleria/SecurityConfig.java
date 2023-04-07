@@ -18,23 +18,23 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService users() {
         UserDetails admin = User.builder()
-                .username("Santiago")
-                .password("{noop}Santica")
+                .username("santi")
+                .password("{noop}3110")
                 .roles("USER", "VENDEDOR", "ADMIN")
                 .build();
         UserDetails vendedor = User.builder()
-                .username("Diego")
-                .password("{noop}RS1719")
+                .username("diego")
+                .password("{noop}1719")
                 .roles("USER", "VENDEDOR")
                 .build();
         UserDetails usuario = User.builder()
-                .username("Johel")
-                .password("{noop}Pirulillo")
+                .username("johel")
+                .password("{noop}6969")
                 .roles("USER" )
                 .build();
         return new InMemoryUserDetailsManager(usuario, vendedor, admin);
     }
-    
+    /*
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -49,6 +49,5 @@ public class SecurityConfig {
                                 "/producto/eliminar/**").hasRole("ADMIN")
                 );
         
-        return http.build();
+        return http.build();*/
     } 
-}
