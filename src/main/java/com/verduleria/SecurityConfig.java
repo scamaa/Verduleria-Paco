@@ -17,45 +17,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
    
-    /*
-    //Se definen los usuarios del sistema en formato de memoria
-    @Bean
-    public UserDetailsService users() {
-        UserDetails admin = User.builder()
-                .username("santi")
-                .password("{noop}3110")
-                .roles("USER", "VENDEDOR", "ADMIN")
-                .build();
-        UserDetails vendedor = User.builder()
-                .username("diego")
-                .password("{noop}1719")
-                .roles("USER", "VENDEDOR")
-                .build();
-        UserDetails usuario = User.builder()
-                .username("johel")
-                .password("{noop}6969")
-                .roles("USER" )
-                .build();
-        return new InMemoryUserDetailsManager(usuario, vendedor, admin);
-    }*/
-    
-    /*
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/",
-                                "/index",
-                                "/errores/**",
-                                "/webjars/**").permitAll()
-                        .requestMatchers("/producto/nuevo",
-                                "/producto/guardar",
-                                "/producto/modificar/**",
-                                "/producto/eliminar/**").hasRole("ADMIN")
-                );
-        
-        return http.build();*/
-    
     @Autowired
     private UserDetailsService userDetailsService;
 
